@@ -50,7 +50,7 @@ def main():
         "--dataset",
         metavar="NAME",
         help="the dataset to load training points from",
-        default="glove-100-angular",
+        default="sift-128-euclidean",
         choices=DATASETS.keys(),
     )
     parser.add_argument(
