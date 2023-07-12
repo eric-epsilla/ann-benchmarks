@@ -54,7 +54,7 @@ def main():
         choices=DATASETS.keys(),
     )
     parser.add_argument(
-        "-k", "--count", default=10, type=positive_int, help="the number of near neighbours to search for"
+        "-k", "--count", default=5, type=positive_int, help="the number of near neighbours to search for"
     )
     parser.add_argument(
         "--definitions", metavar="FOLDER", help="base directory of algorithms. Algorithm definitions expected at 'FOLDER/*/config.yml'", default="ann_benchmarks/algorithms"
@@ -72,7 +72,7 @@ def main():
         metavar="COUNT",
         type=positive_int,
         help="run each algorithm instance %(metavar)s times and use only" " the best result",
-        default=5,
+        default=3,
     )
     parser.add_argument(
         "--timeout",
@@ -134,6 +134,7 @@ def main():
     definitions = filtered_definitions
 
     random.shuffle(definitions)
+    print("XXXXXX|definitions:", definitions)
 
     if args.algorithm:
         logger.info(f"running only {args.algorithm}")
